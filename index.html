@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attune — Daily Health Insights, Right From Your Bathroom</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'Segoe UI', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              blue: '#0ea5e9',
+              teal: '#22c55e',
+              deep: '#0f172a',
+              green: '#34d399',
+            },
+          },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="bg-[#f9fafb] text-slate-900 antialiased font-sans">
+  <!-- Hero -->
+  <div class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-sky-500 via-sky-400 to-emerald-500"></div>
+    <div class="relative mx-auto max-w-6xl px-6 pb-16 pt-8 sm:pt-12 lg:pt-16">
+      <header class="flex items-center justify-between">
+        <div class="text-2xl font-semibold tracking-tight text-white">Attune</div>
+        <a href="#waitlist" class="inline-flex items-center rounded-full bg-white px-5 py-2 text-sm font-semibold text-brand.deep shadow-md transition hover:shadow-lg">Join the waitlist</a>
+      </header>
+      <div class="mt-12 grid items-center gap-10 lg:grid-cols-[1fr,0.9fr]">
+        <div class="space-y-6">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white">Daily Health Insights, Right From Your Bathroom</h1>
+          <p class="text-lg text-white/90 max-w-2xl">Unlock the signals your body generates every day. Attune passively tracks hydration, recovery, and metabolic state through your urine—no wearables, no manual logs. Get simple, actionable feedback that helps you improve your health and avoid preventable setbacks.</p>
+          <div class="flex flex-wrap gap-3">
+            <a href="#waitlist" class="inline-flex items-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-brand.deep shadow-md transition hover:shadow-lg">Join the waitlist</a>
+            <a href="#how-it-works" class="inline-flex items-center rounded-full bg-white/15 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/25 border border-white/30">Learn more</a>
+          </div>
+        </div>
+        <div class="flex justify-center">
+          <img src="./hero-toilet.png" alt="Smart toilet module" class="w-full max-w-md drop-shadow-2xl">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="mx-auto max-w-6xl px-6 pb-20">
+    <!-- What this helps you do -->
+    <section class="mt-14 rounded-[32px] bg-gradient-to-br from-sky-100 via-white to-emerald-50 px-6 py-10 ring-1 ring-white shadow-sm">
+      <h2 class="text-3xl font-semibold text-brand.deep text-center">What this helps you do every day</h2>
+      <div class="mt-8 grid gap-5 md:grid-cols-3">
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-100 text-center">
+          <div class="mx-auto mb-4 h-12 w-12 rounded-full bg-sky-100 flex items-center justify-center text-sky-500 text-2xl">💧</div>
+          <h3 class="text-lg font-semibold text-slate-900">Stay hydrated</h3>
+          <p class="mt-3 text-slate-600">Measure urine specific gravity to spot dehydration early.</p>
+        </div>
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-100 text-center">
+          <div class="mx-auto mb-4 h-12 w-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-500 text-2xl">⟳</div>
+          <h3 class="text-lg font-semibold text-slate-900">Optimize recovery</h3>
+          <p class="mt-3 text-slate-600">Track recovery markers in your urine to avoid overtraining.</p>
+        </div>
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-100 text-center">
+          <div class="mx-auto mb-4 h-12 w-12 rounded-full bg-teal-100 flex items-center justify-center text-teal-500 text-2xl">⚛</div>
+          <h3 class="text-lg font-semibold text-slate-900">Monitor your metabolism</h3>
+          <p class="mt-3 text-slate-600">Follow ketones and electrolytes to see how your diet is working.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how-it-works" class="mt-16">
+      <h2 class="text-3xl font-semibold text-slate-900">How it works</h2>
+      <div class="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div class="rounded-xl bg-white p-5 shadow-sm ring-1 ring-slate-100">
+          <p class="text-sm font-semibold uppercase tracking-wide text-slate-500">Step 1</p>
+          <p class="mt-2 text-slate-800">You go, it measures — passive urine analysis each visit.</p>
+        </div>
+        <div class="rounded-xl bg-white p-5 shadow-sm ring-1 ring-slate-100">
+          <p class="text-sm font-semibold uppercase tracking-wide text-slate-500">Step 2</p>
+          <p class="mt-2 text-slate-800">Hydration, recovery, and metabolic markers are detected.</p>
+        </div>
+        <div class="rounded-xl bg-white p-5 shadow-sm ring-1 ring-slate-100">
+          <p class="text-sm font-semibold uppercase tracking-wide text-slate-500">Step 3</p>
+          <p class="mt-2 text-slate-800">Insights are delivered automatically to your app.</p>
+        </div>
+        <div class="rounded-xl bg-white p-5 shadow-sm ring-1 ring-slate-100">
+          <p class="text-sm font-semibold uppercase tracking-wide text-slate-500">Step 4</p>
+          <p class="mt-2 text-slate-800">You adjust faster — with zero behavior change.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who it's for -->
+    <section class="mt-16">
+      <h2 class="text-3xl font-semibold text-slate-900">Who it’s for</h2>
+      <p class="mt-4 text-slate-600">Designed for people who push their bodies and care about their internal signals.</p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <span class="rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-800 shadow-sm ring-1 ring-slate-100">Athletes</span>
+        <span class="rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-800 shadow-sm ring-1 ring-slate-100">Runners & cyclists</span>
+        <span class="rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-800 shadow-sm ring-1 ring-slate-100">Gym-goers</span>
+        <span class="rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-800 shadow-sm ring-1 ring-slate-100">Health-minded folks</span>
+        <span class="rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-800 shadow-sm ring-1 ring-slate-100">Biohackers</span>
+      </div>
+    </section>
+
+    <!-- Waitlist CTA -->
+    <section id="waitlist" class="mt-16">
+      <div class="rounded-2xl bg-gradient-to-r from-sky-500 to-emerald-500 p-8 shadow-lg">
+        <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+          <div class="space-y-2">
+            <p class="text-sm font-semibold uppercase tracking-wide text-white/90">Join the waitlist</p>
+            <h3 class="text-3xl font-semibold text-white">Be first to get Attune</h3>
+            <p class="text-white/90">Early access, special pricing, and beta invitations.</p>
+          </div>
+          <form id="waitlist-form" class="flex w-full flex-col gap-3 sm:flex-row sm:items-center lg:w-auto">
+            <input type="email" name="email" required placeholder="you@example.com" class="w-full rounded-full border border-white/30 bg-white/20 px-4 py-3 text-white placeholder:text-white/70 focus:border-white focus:outline-none focus:ring-2 focus:ring-white/60 sm:w-64">
+            <input type="text" name="_gotcha" autocomplete="off" tabindex="-1" class="hidden">
+            <button type="submit" class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow transition hover:shadow-md">Join the waitlist</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mt-16">
+      <h2 class="text-3xl font-semibold text-slate-900">FAQ</h2>
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <div class="rounded-xl bg-white p-5 shadow-sm ring-1 ring-slate-100">
+          <h4 class="text-lg font-semibold text-slate-900">Is this sanitary?</h4>
+          <p class="mt-2 text-slate-600">Yes. Analysis is non-contact and fully enclosed.</p>
+        </div>
+        <div class="rounded-xl bg-white p-5 shadow-sm ring-1 ring-slate-100">
+          <h4 class="text-lg font-semibold text-slate-900">Does it replace my wearables?</h4>
+          <p class="mt-2 text-slate-600">It complements them by measuring internal biomarkers they cannot.</p>
+        </div>
+        <div class="rounded-xl bg-white p-5 shadow-sm ring-1 ring-slate-100">
+          <h4 class="text-lg font-semibold text-slate-900">What biomarkers do you track?</h4>
+          <p class="mt-2 text-slate-600">Hydration, recovery markers, metabolic indicators like ketones and electrolytes.</p>
+        </div>
+        <div class="rounded-xl bg-white p-5 shadow-sm ring-1 ring-slate-100">
+          <h4 class="text-lg font-semibold text-slate-900">Does it work with any toilet?</h4>
+          <p class="mt-2 text-slate-600">A retrofit version is planned; early units may require compatible hardware.</p>
+        </div>
+        <div class="rounded-xl bg-white p-5 shadow-sm ring-1 ring-slate-100">
+          <h4 class="text-lg font-semibold text-slate-900">When will it be available?</h4>
+          <p class="mt-2 text-slate-600">We’re selecting early testers now.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const WAITLIST_ENDPOINT = 'https://usebasin.com/f/a31af0c903bc';
+
+    const waitlistForm = document.getElementById('waitlist-form');
+    if (waitlistForm) {
+      waitlistForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const emailInput = waitlistForm.querySelector('input[name="email"]');
+        const honeypot = waitlistForm.querySelector('input[name="_gotcha"]');
+        const email = emailInput ? emailInput.value.trim() : '';
+        const isSpam = honeypot && honeypot.value;
+        if (!email || isSpam) return;
+
+        try {
+          const response = await fetch(WAITLIST_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email }),
+          });
+
+          const success = response.ok;
+          alert(success ? `Thanks, ${email}! You're on the Attune waitlist.` : 'Waitlist is full right now—email us at hello@attune.com.');
+        } catch (error) {
+          alert('Network hiccup—please try again.');
+        } finally {
+          waitlistForm.reset();
+        }
+      });
+    }
+  </script>
+</body>
+</html>
