@@ -175,10 +175,13 @@
             body: JSON.stringify({ email }),
           });
 
-          const success = response.ok;
-          alert(success ? `Thanks, ${email}! You're on the Attune waitlist.` : 'Waitlist is full right now—email us at hello@attune.com.');
+          if (response.ok) {
+            window.location.href = '/waitlist-confirmed/';
+            return;
+          }
+          alert('Waitlist is full right now-email us at hello@attune.com.');
         } catch (error) {
-          alert('Network hiccup—please try again.');
+          alert('Network hiccup-please try again.');
         } finally {
           waitlistForm.reset();
         }
