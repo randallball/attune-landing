@@ -69,6 +69,7 @@
       <div class="mt-12 grid items-center gap-10 lg:grid-cols-[1fr,0.9fr]">
         <div class="space-y-6">
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white">Daily Health Insights, Right From Your Bathroom</h1>
+          <p class="text-lg font-semibold text-white/90" data-price-hero>Early access pricing</p>
           <p class="text-lg text-white/80 max-w-2xl">Your body already knows what's going on. Attune helps you listen. Attune passively tracks hydration, recovery, and metabolic state through your urine&mdash;no wearables, no appointments, no manual logs. Get simple, actionable feedback that helps you improve your health and avoid preventable setbacks.</p>
           <div class="flex flex-wrap gap-3">
             <a href="#waitlist" class="inline-flex items-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-md transition hover:shadow-lg">Join the waitlist</a>
@@ -149,6 +150,7 @@
           <p class="text-sm font-semibold uppercase tracking-wide text-white/90">Join the waitlist</p>
           <h3 class="text-3xl font-semibold text-white">Be first to get Attune</h3>
           <p class="text-white/90">Early access, special pricing, and beta invitations.</p>
+          <p class="text-sm font-semibold text-white/90" data-price-cta>Early access pricing</p>
         </div>
         <form id="waitlist-form" class="flex w-full flex-col gap-3 sm:flex-row sm:items-center lg:w-auto">
           <input type="email" name="email" required placeholder="you@example.com" class="w-full rounded-full border border-white/40 bg-white/20 px-4 py-3 text-white placeholder:text-white/70 focus:border-white focus:outline-none focus:ring-2 focus:ring-white/60 sm:w-64">
@@ -188,6 +190,146 @@
 
   <script>
     const WAITLIST_ENDPOINT = 'https://usebasin.com/f/a31af0c903bc';
+    const ALLOWED_PRICES = [9, 19, 39, 79];
+    const DEFAULT_PRICE = null;
+    const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'utm_ad'];
+
+    /*
+      Test plan:
+      1) Visit /join?price=39&utm_source=meta&utm_campaign=pricing_test_v1&utm_ad=ad_a
+         - Price appears in hero + CTA
+         - Payload includes price_shown=39 and UTMs
+      2) Visit /join?price=999
+         - Shows "Early access pricing"
+         - price_shown stored as null
+      3) Submit signup and confirm:
+         - Server receives/stores price_shown + UTMs
+         - Analytics event fires with correct properties
+    */
+
+    const getCookie = (name) => {
+      const match = document.cookie.match(new RegExp(`(?:^|; )${name}=([^;]*)`));
+      return match ? decodeURIComponent(match[1]) : null;
+    };
+
+    const setSessionValue = (key, value) => {
+      const safeValue = value === null ? '' : String(value);
+      try {
+        document.cookie = `${key}=${encodeURIComponent(safeValue)}; path=/; SameSite=Lax`;
+      } catch (error) {
+        // Cookie write failed; fall back to localStorage only.
+      }
+      try {
+        localStorage.setItem(key, safeValue);
+      } catch (error) {
+        // localStorage not available.
+      }
+    };
+
+    const getSessionValue = (key) => {
+      const cookieValue = getCookie(key);
+      if (cookieValue !== null) {
+        return cookieValue;
+      }
+      try {
+        return localStorage.getItem(key);
+      } catch (error) {
+        return null;
+      }
+    };
+
+    const resolvePriceShown = (params) => {
+      let priceShown = DEFAULT_PRICE;
+      if (params.has('price')) {
+        const raw = params.get('price');
+        const parsed = raw === null ? NaN : Number(raw);
+        priceShown = ALLOWED_PRICES.includes(parsed) ? parsed : DEFAULT_PRICE;
+      } else {
+        const stored = getSessionValue('price_shown');
+        const parsedStored = stored === null || stored === '' ? DEFAULT_PRICE : Number(stored);
+        priceShown = ALLOWED_PRICES.includes(parsedStored) ? parsedStored : DEFAULT_PRICE;
+      }
+      setSessionValue('price_shown', priceShown);
+      return priceShown;
+    };
+
+    const resolveUtmValues = (params) => {
+      const utms = {};
+      UTM_KEYS.forEach((key) => {
+        if (params.has(key)) {
+          const value = params.get(key);
+          const normalized = value ? value.trim() : '';
+          utms[key] = normalized || null;
+          setSessionValue(key, utms[key]);
+        } else {
+          const stored = getSessionValue(key);
+          utms[key] = stored === null || stored === '' ? null : stored;
+        }
+      });
+      return utms;
+    };
+
+    const formatHeroPrice = (priceShown) => {
+      if (priceShown === null) return 'Early access pricing';
+      return `Early access: $${priceShown}/month`;
+    };
+
+    const formatCtaPrice = (priceShown) => {
+      if (priceShown === null) return 'Join for early access pricing';
+      return `Join for $${priceShown}/month`;
+    };
+
+    const updatePriceCopy = (priceShown) => {
+      const hero = document.querySelector('[data-price-hero]');
+      if (hero) hero.textContent = formatHeroPrice(priceShown);
+      const cta = document.querySelector('[data-price-cta]');
+      if (cta) cta.textContent = formatHeroPrice(priceShown);
+    };
+
+    const isDev = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+    const trackAnalyticsEvent = (name, properties) => {
+      if (Array.isArray(window.dataLayer)) {
+        window.dataLayer.push({ event: name, ...properties });
+        return;
+      }
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', name, properties);
+        return;
+      }
+      if (window.analytics && typeof window.analytics.track === 'function') {
+        window.analytics.track(name, properties);
+        return;
+      }
+      if (isDev) return;
+    };
+
+    let pricingState = { priceShown: DEFAULT_PRICE, utms: {} };
+
+    const applyPricingFromUrl = () => {
+      const params = new URLSearchParams(window.location.search);
+      const priceShown = resolvePriceShown(params);
+      const utms = resolveUtmValues(params);
+      pricingState = { priceShown, utms };
+      updatePriceCopy(priceShown);
+    };
+
+    applyPricingFromUrl();
+
+    window.addEventListener('popstate', () => {
+      applyPricingFromUrl();
+    });
+
+    const originalPushState = history.pushState;
+    history.pushState = function () {
+      originalPushState.apply(this, arguments);
+      applyPricingFromUrl();
+    };
+
+    const originalReplaceState = history.replaceState;
+    history.replaceState = function () {
+      originalReplaceState.apply(this, arguments);
+      applyPricingFromUrl();
+    };
 
     const waitlistForm = document.getElementById('waitlist-form');
     if (waitlistForm) {
@@ -203,10 +345,26 @@
           const response = await fetch(WAITLIST_ENDPOINT, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email }),
+            body: JSON.stringify({
+              email,
+              price_shown: pricingState.priceShown,
+              utm_source: pricingState.utms.utm_source || null,
+              utm_medium: pricingState.utms.utm_medium || null,
+              utm_campaign: pricingState.utms.utm_campaign || null,
+              utm_content: pricingState.utms.utm_content || null,
+              utm_term: pricingState.utms.utm_term || null,
+              utm_ad: pricingState.utms.utm_ad || null,
+              landing_path: window.location.pathname,
+              full_url: window.location.href,
+            }),
           });
 
           if (response.ok) {
+            trackAnalyticsEvent('waitlist_signup', {
+              price_shown: pricingState.priceShown,
+              page_path: window.location.pathname,
+              ...pricingState.utms,
+            });
             window.location.href = '/waitlist-confirmed/';
             return;
           }
