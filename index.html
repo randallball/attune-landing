@@ -49,35 +49,48 @@
     };
   </script>
 </head>
-<body class="bg-slate-950 text-slate-50 antialiased font-sans relative overflow-x-hidden">
+<body class="bg-[#0F172A] text-[#F1F5F9] antialiased font-sans relative overflow-x-hidden">
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N4P472B5"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   <div class="pointer-events-none absolute inset-0">
-    <div class="absolute inset-0 bg-gradient-to-br from-sky-500/20 via-slate-900 to-emerald-500/15 blur-3xl"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.05),transparent_35%),radial-gradient(circle_at_80%_10%,rgba(14,165,233,0.08),transparent_30%)]"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-[#0EA5E9]/20 via-[#162032] to-[#1E293B]/90 blur-3xl"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(14,165,233,0.16),transparent_35%),radial-gradient(circle_at_80%_10%,rgba(52,211,153,0.12),transparent_30%)]"></div>
   </div>
 
   <!-- Hero -->
   <div class="relative">
     <div class="relative mx-auto max-w-6xl px-6 pb-16 pt-8 sm:pt-12 lg:pt-16">
       <header class="flex items-center justify-between">
-        <div class="text-2xl font-semibold tracking-tight text-white">Attune</div>
-        <a href="#waitlist" class="inline-flex items-center rounded-full bg-white px-5 py-2 text-sm font-semibold text-slate-900 shadow-md transition hover:shadow-lg">Join the waitlist</a>
+        <div class="text-2xl font-semibold tracking-tight text-[#F1F5F9]">Attune</div>
+        <a
+          href="#waitlist"
+          data-segment-copy="topCtaText"
+          data-segment-href-performance="#waitlist"
+          data-segment-href-screen="/checkout/"
+          class="inline-flex items-center rounded-full bg-[#0EA5E9] px-5 py-2 text-sm font-semibold text-white shadow-md transition hover:bg-[#0284C7] hover:shadow-lg"
+        >Join the waitlist</a>
       </header>
       <div class="mt-12 grid items-center gap-10 lg:grid-cols-[1fr,0.9fr]">
         <div class="space-y-6">
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white">Daily Health Insights, Right From Your Bathroom</h1>
-          <p class="text-lg font-semibold text-white/90" data-price-hero>Early access pricing</p>
-          <p class="text-lg text-white/80 max-w-2xl">Your body already knows what's going on. Attune helps you listen. Attune passively tracks hydration, recovery, and metabolic state through your urine&mdash;no wearables, no appointments, no manual logs. Get simple, actionable feedback that helps you improve your health and avoid preventable setbacks.</p>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-[#F1F5F9]" data-segment-copy="heroTitle">Daily Health Insights, Right From Your Bathroom</h1>
+          <p class="text-lg font-semibold text-[#94A3B8]" data-price-hero>Early access pricing</p>
+          <p class="text-lg text-[#94A3B8] max-w-2xl" data-segment-copy="heroBody">Your body already knows what's going on. Attune helps you listen. Attune passively tracks hydration, recovery, and metabolic state through your urine&mdash;no wearables, no appointments, no manual logs. Get simple, actionable feedback that helps you improve your health and avoid preventable setbacks.</p>
           <div class="flex flex-wrap gap-3">
-            <a href="#waitlist" class="inline-flex items-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-md transition hover:shadow-lg">Join the waitlist</a>
-            <a href="#how-it-works" class="inline-flex items-center rounded-full bg-white/10 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/20 border border-white/20">Learn more</a>
+            <a
+              href="#waitlist"
+              data-segment-copy="heroPrimaryCta"
+              data-segment-href-performance="#waitlist"
+              data-segment-href-screen="/checkout/"
+              class="inline-flex items-center rounded-full bg-[#0EA5E9] px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-[#0284C7] hover:shadow-lg"
+            >Join the waitlist</a>
+            <a href="#how-it-works" data-segment-copy="heroSecondaryCta" class="inline-flex items-center rounded-full bg-white/10 px-6 py-3 text-sm font-semibold text-[#F1F5F9] transition hover:bg-white/20 border border-[#334155]">Learn more</a>
           </div>
+          <p class="max-w-2xl text-sm text-[#94A3B8] hidden" data-segment-copy="heroMicrocopy" data-segment-hide-if-empty="true"></p>
         </div>
         <div class="relative flex justify-center">
-          <div class="absolute -inset-10 sm:-inset-12 bg-gradient-to-br from-sky-500/30 via-sky-400/10 to-transparent blur-3xl opacity-80"></div>
+          <div class="absolute -inset-10 sm:-inset-12 bg-gradient-to-br from-[#0EA5E9]/35 via-[#34D399]/15 to-transparent blur-3xl opacity-80"></div>
           <img src="./Attune_app_insights.png" alt="Attune app insights" class="relative w-full max-w-md drop-shadow-[0_25px_60px_rgba(0,0,0,0.45)]">
         </div>
       </div>
@@ -86,124 +99,276 @@
 
   <main class="relative mx-auto max-w-6xl px-6 pb-20 space-y-12">
     <!-- What this helps you do -->
-    <section class="mt-6 rounded-[32px] bg-slate-900/70 px-6 py-10 ring-1 ring-white/10 shadow-xl backdrop-blur">
-      <h2 class="text-3xl font-semibold text-white text-center">What this helps you do every day</h2>
+    <section class="mt-6 rounded-[32px] bg-[#1E293B]/80 px-6 py-10 ring-1 ring-[#334155] shadow-xl backdrop-blur">
+      <h2 class="text-3xl font-semibold text-[#F1F5F9] text-center" data-segment-copy="benefitsHeading">What this helps you do every day</h2>
       <div class="mt-8 grid gap-5 md:grid-cols-3">
-        <div class="rounded-2xl bg-white/5 p-6 shadow-sm ring-1 ring-white/10 text-center">
+        <div class="rounded-2xl bg-[#1E293B]/70 p-6 shadow-sm ring-1 ring-[#334155] text-center">
           <div class="mx-auto mb-4 h-12 w-12 rounded-full bg-sky-500/20 flex items-center justify-center text-sky-300 text-2xl">💧</div>
-          <h3 class="text-lg font-semibold text-white">Stay hydrated</h3>
-          <p class="mt-3 text-white/70">Measure urine specific gravity to spot dehydration early.</p>
+          <h3 class="text-lg font-semibold text-[#F1F5F9]" data-segment-copy="benefit1Title">Stay hydrated</h3>
+          <p class="mt-3 text-[#94A3B8]" data-segment-copy="benefit1Body">Measure urine specific gravity to spot dehydration early.</p>
         </div>
-        <div class="rounded-2xl bg-white/5 p-6 shadow-sm ring-1 ring-white/10 text-center">
+        <div class="rounded-2xl bg-[#1E293B]/70 p-6 shadow-sm ring-1 ring-[#334155] text-center">
           <div class="mx-auto mb-4 h-12 w-12 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-300 text-2xl">⟳</div>
-          <h3 class="text-lg font-semibold text-white">Optimize recovery</h3>
-          <p class="mt-3 text-white/70">Track recovery markers in your urine to avoid overtraining.</p>
+          <h3 class="text-lg font-semibold text-[#F1F5F9]" data-segment-copy="benefit2Title">Optimize recovery</h3>
+          <p class="mt-3 text-[#94A3B8]" data-segment-copy="benefit2Body">Track recovery markers in your urine to avoid overtraining.</p>
         </div>
-        <div class="rounded-2xl bg-white/5 p-6 shadow-sm ring-1 ring-white/10 text-center">
+        <div class="rounded-2xl bg-[#1E293B]/70 p-6 shadow-sm ring-1 ring-[#334155] text-center">
           <div class="mx-auto mb-4 h-12 w-12 rounded-full bg-teal-500/20 flex items-center justify-center text-teal-200 text-2xl">⚛</div>
-          <h3 class="text-lg font-semibold text-white">Monitor your metabolism</h3>
-          <p class="mt-3 text-white/70">Follow ketones and electrolytes to see how your diet is working.</p>
+          <h3 class="text-lg font-semibold text-[#F1F5F9]" data-segment-copy="benefit3Title">Monitor your metabolism</h3>
+          <p class="mt-3 text-[#94A3B8]" data-segment-copy="benefit3Body">Follow ketones and electrolytes to see how your diet is working.</p>
         </div>
       </div>
     </section>
 
     <!-- How it works -->
-    <section id="how-it-works" class="rounded-[28px] bg-slate-900/70 p-8 ring-1 ring-white/10 shadow-xl backdrop-blur">
-      <h2 class="text-3xl font-semibold text-white">How it works</h2>
-      <div class="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <div class="rounded-xl bg-white/5 p-5 shadow-sm ring-1 ring-white/10">
-          <p class="text-sm font-semibold uppercase tracking-wide text-white/70">Step 1</p>
-          <p class="mt-2 text-white">You go, it measures &mdash; passive urine analysis each visit.</p>
+    <section id="how-it-works" class="rounded-[28px] bg-[#1E293B]/80 p-8 ring-1 ring-[#334155] shadow-xl backdrop-blur">
+      <h2 class="text-3xl font-semibold text-[#F1F5F9]">How it works</h2>
+      <div id="how-it-works-grid" class="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div class="rounded-xl bg-[#1E293B]/70 p-5 shadow-sm ring-1 ring-[#334155]">
+          <p class="text-sm font-semibold uppercase tracking-wide text-[#94A3B8]">Step 1</p>
+          <p class="mt-2 text-[#F1F5F9]" data-segment-copy="step1Body">You go, it measures &mdash; passive urine analysis each visit.</p>
         </div>
-        <div class="rounded-xl bg-white/5 p-5 shadow-sm ring-1 ring-white/10">
-          <p class="text-sm font-semibold uppercase tracking-wide text-white/70">Step 2</p>
-          <p class="mt-2 text-white">Hydration, recovery, and metabolic markers are detected.</p>
+        <div class="rounded-xl bg-[#1E293B]/70 p-5 shadow-sm ring-1 ring-[#334155]">
+          <p class="text-sm font-semibold uppercase tracking-wide text-[#94A3B8]">Step 2</p>
+          <p class="mt-2 text-[#F1F5F9]" data-segment-copy="step2Body">Hydration, recovery, and metabolic markers are detected.</p>
         </div>
-        <div class="rounded-xl bg-white/5 p-5 shadow-sm ring-1 ring-white/10">
-          <p class="text-sm font-semibold uppercase tracking-wide text-white/70">Step 3</p>
-          <p class="mt-2 text-white">Insights are delivered automatically to your app.</p>
+        <div class="rounded-xl bg-[#1E293B]/70 p-5 shadow-sm ring-1 ring-[#334155]">
+          <p class="text-sm font-semibold uppercase tracking-wide text-[#94A3B8]">Step 3</p>
+          <p class="mt-2 text-[#F1F5F9]" data-segment-copy="step3Body">Insights are delivered automatically to your app.</p>
         </div>
-        <div class="rounded-xl bg-white/5 p-5 shadow-sm ring-1 ring-white/10">
-          <p class="text-sm font-semibold uppercase tracking-wide text-white/70">Step 4</p>
-          <p class="mt-2 text-white">You adjust in real time.</p>
+        <div class="rounded-xl bg-[#1E293B]/70 p-5 shadow-sm ring-1 ring-[#334155]" data-segment-visible="performance">
+          <p class="text-sm font-semibold uppercase tracking-wide text-[#94A3B8]">Step 4</p>
+          <p class="mt-2 text-[#F1F5F9]">You adjust in real time.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- What you'll see -->
+    <section class="hidden rounded-[28px] bg-[#1E293B]/80 p-8 ring-1 ring-[#334155] shadow-xl backdrop-blur" data-segment-visible="screen">
+      <h2 class="text-3xl font-semibold text-[#F1F5F9]" data-segment-copy="signalsHeading">What you will see</h2>
+      <div class="mt-6 grid gap-4 md:grid-cols-3">
+        <div class="rounded-xl bg-[#1E293B]/70 p-5 shadow-sm ring-1 ring-[#334155]">
+          <h3 class="text-lg font-semibold text-[#F1F5F9]" data-segment-copy="signal1Title">Daily health score</h3>
+          <div class="mt-3 rounded-xl border border-dashed border-[#334155] bg-[#1E293B]/70 px-4 py-10 text-center text-xs font-semibold uppercase tracking-wide text-[#64748B]">
+            Screenshot placeholder
+          </div>
+          <p class="mt-3 text-[#94A3B8]" data-segment-copy="signal1Body">Daily health score placeholder for your app screenshot.</p>
+        </div>
+        <div class="rounded-xl bg-[#1E293B]/70 p-5 shadow-sm ring-1 ring-[#334155]">
+          <h3 class="text-lg font-semibold text-[#F1F5F9]" data-segment-copy="signal2Title">Health trends over time</h3>
+          <div class="mt-3 rounded-xl border border-dashed border-[#334155] bg-[#1E293B]/70 px-4 py-10 text-center text-xs font-semibold uppercase tracking-wide text-[#64748B]">
+            Screenshot placeholder
+          </div>
+          <p class="mt-3 text-[#94A3B8]" data-segment-copy="signal2Body">Health trends over time placeholder for your app screenshot.</p>
+        </div>
+        <div class="rounded-xl bg-[#1E293B]/70 p-5 shadow-sm ring-1 ring-[#334155]">
+          <h3 class="text-lg font-semibold text-[#F1F5F9]" data-segment-copy="signal3Title">Daily check in</h3>
+          <div class="mt-3 rounded-xl border border-dashed border-[#334155] bg-[#1E293B]/70 px-4 py-10 text-center text-xs font-semibold uppercase tracking-wide text-[#64748B]">
+            Screenshot placeholder
+          </div>
+          <p class="mt-3 text-[#94A3B8]" data-segment-copy="signal3Body">Daily check in placeholder for your app screenshot.</p>
         </div>
       </div>
     </section>
 
     <!-- Who it's for -->
-    <section class="rounded-[28px] bg-slate-900/70 p-8 ring-1 ring-white/10 shadow-xl backdrop-blur">
-      <h2 class="text-3xl font-semibold text-white">Who it's for</h2>
-      <p class="mt-4 text-white/70">Designed for people who push their bodies and care about their internal signals.</p>
-      <div class="mt-6 flex flex-wrap gap-3">
-        <span class="rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-white/15">Athletes</span>
-        <span class="rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-white/15">Runners & cyclists</span>
-        <span class="rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-white/15">Gym-goers</span>
-        <span class="rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-white/15">Health-minded folks</span>
-        <span class="rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-white/15">Biohackers</span>
+    <section class="rounded-[28px] bg-[#1E293B]/80 p-8 ring-1 ring-[#334155] shadow-xl backdrop-blur">
+      <h2 class="text-3xl font-semibold text-[#F1F5F9]">Who it's for</h2>
+      <p class="mt-4 text-[#94A3B8]" data-segment-copy="audienceDescription">Designed for people who push their bodies and care about their internal signals.</p>
+      <div class="mt-6 flex flex-wrap gap-3" data-segment-visible="performance">
+        <span class="rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-[#F1F5F9] shadow-sm ring-1 ring-white/15" data-segment-copy="audienceTag1">Athletes</span>
+        <span class="rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-[#F1F5F9] shadow-sm ring-1 ring-white/15" data-segment-copy="audienceTag2">Runners & cyclists</span>
+        <span class="rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-[#F1F5F9] shadow-sm ring-1 ring-white/15" data-segment-copy="audienceTag3">Gym-goers</span>
+        <span class="rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-[#F1F5F9] shadow-sm ring-1 ring-white/15" data-segment-copy="audienceTag4">Health-minded folks</span>
+        <span class="rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-[#F1F5F9] shadow-sm ring-1 ring-white/15" data-segment-copy="audienceTag5">Biohackers</span>
+      </div>
+      <div class="mt-6 hidden grid gap-4 md:grid-cols-3" data-segment-visible="screen">
+        <div class="rounded-xl bg-[#1E293B]/70 p-5 shadow-sm ring-1 ring-[#334155]">
+          <h3 class="text-lg font-semibold text-[#F1F5F9]" data-segment-copy="screenAudience1Title">Hydration-focused people</h3>
+          <p class="mt-2 text-[#94A3B8]" data-segment-copy="screenAudience1Body">Athletes, outdoors, sauna users, frequent travelers.</p>
+        </div>
+        <div class="rounded-xl bg-[#1E293B]/70 p-5 shadow-sm ring-1 ring-[#334155]">
+          <h3 class="text-lg font-semibold text-[#F1F5F9]" data-segment-copy="screenAudience2Title">Routine optimizers</h3>
+          <p class="mt-2 text-[#94A3B8]" data-segment-copy="screenAudience2Body">People who like data-driven habits and want feedback beyond drink more water.</p>
+        </div>
+        <div class="rounded-xl bg-[#1E293B]/70 p-5 shadow-sm ring-1 ring-[#334155]">
+          <h3 class="text-lg font-semibold text-[#F1F5F9]" data-segment-copy="screenAudience3Title">Anyone who wants a record</h3>
+          <p class="mt-2 text-[#94A3B8]" data-segment-copy="screenAudience3Body">If you already use urine strips occasionally, Attune makes it easy to track consistently.</p>
+        </div>
       </div>
     </section>
 
     <!-- Waitlist CTA -->
-    <section id="waitlist" class="rounded-[32px] bg-gradient-to-r from-sky-600/60 via-sky-500/50 to-emerald-500/60 p-8 shadow-2xl ring-1 ring-white/15 backdrop-blur">
+    <section id="waitlist" class="rounded-[32px] bg-gradient-to-r from-[#0EA5E9]/30 via-[#1E293B]/90 to-[#34D399]/25 p-8 shadow-2xl ring-1 ring-white/15 backdrop-blur">
       <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
         <div class="space-y-2">
-          <p class="text-sm font-semibold uppercase tracking-wide text-white/90">Join the waitlist</p>
-          <h3 class="text-3xl font-semibold text-white">Be first to get Attune</h3>
-          <p class="text-white/90">Early access, special pricing, and beta invitations.</p>
-          <p class="text-sm font-semibold text-white/90" data-price-cta>Early access pricing</p>
+          <p class="text-sm font-semibold uppercase tracking-wide text-[#94A3B8]" data-segment-copy="ctaEyebrow">Join the waitlist</p>
+          <h3 class="text-3xl font-semibold text-[#F1F5F9]" data-segment-copy="ctaHeading">Be first to get Attune</h3>
+          <p class="text-[#94A3B8]" data-segment-copy="ctaBody">Early access, special pricing, and beta invitations.</p>
+          <p class="text-sm font-semibold text-[#94A3B8]" data-price-cta data-segment-visible="performance">Early access pricing</p>
+          <p class="hidden max-w-2xl text-xs text-[#94A3B8]" data-segment-copy="safetyDisclaimer" data-segment-visible="screen">Attune is for general wellness and informational purposes only.</p>
         </div>
-        <form id="waitlist-form" class="flex w-full flex-col gap-3 sm:flex-row sm:items-center lg:w-auto">
-          <input type="email" name="email" required placeholder="you@example.com" class="w-full rounded-full border border-white/40 bg-white/20 px-4 py-3 text-white placeholder:text-white/70 focus:border-white focus:outline-none focus:ring-2 focus:ring-white/60 sm:w-64">
-          <input type="text" name="_gotcha" autocomplete="off" tabindex="-1" class="hidden">
-          <button type="submit" class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow transition hover:shadow-md">Join the waitlist</button>
+        <form id="waitlist-form" data-segment-visible="performance" class="w-full space-y-3 lg:w-auto">
+          <div class="flex w-full flex-col gap-3 sm:flex-row sm:items-center">
+            <input type="email" name="email" required placeholder="you@example.com" class="w-full rounded-full border border-[#334155] bg-[#162032]/80 px-4 py-3 text-[#F1F5F9] placeholder:text-[#94A3B8] focus:border-[#0EA5E9] focus:outline-none focus:ring-2 focus:ring-[#0EA5E9]/40 sm:w-64">
+            <input type="text" name="_gotcha" autocomplete="off" tabindex="-1" class="hidden">
+            <button type="submit" data-segment-copy="ctaFormButtonText" class="inline-flex items-center justify-center rounded-full bg-[#0EA5E9] px-6 py-3 text-sm font-semibold text-white shadow transition hover:bg-[#0284C7] hover:shadow-md">Join the waitlist</button>
+          </div>
         </form>
+        <div data-segment-visible="screen" class="hidden w-full max-w-md rounded-2xl bg-[#162032]/80 p-5 ring-1 ring-[#334155]">
+          <p class="text-sm font-semibold uppercase tracking-wide text-[#94A3B8]">Subscribe now</p>
+          <p class="mt-2 text-[#94A3B8]" data-segment-copy="purchasePlaceholderBody">Stripe checkout placeholder.</p>
+          <a
+            href="/checkout/"
+            data-segment-copy="ctaPurchaseButtonText"
+            data-segment-href-performance="#waitlist"
+            data-segment-href-screen="/checkout/"
+            class="mt-4 inline-flex items-center justify-center rounded-full bg-[#0EA5E9] px-6 py-3 text-sm font-semibold text-white shadow transition hover:bg-[#0284C7] hover:shadow-md"
+          >Start your $20/month plan</a>
+        </div>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section class="rounded-[28px] bg-slate-900/70 p-8 ring-1 ring-white/10 shadow-xl backdrop-blur">
-      <h2 class="text-3xl font-semibold text-white">FAQ</h2>
+    <section class="rounded-[28px] bg-[#1E293B]/80 p-8 ring-1 ring-[#334155] shadow-xl backdrop-blur">
+      <h2 class="text-3xl font-semibold text-[#F1F5F9]">FAQ</h2>
       <div class="mt-6 grid gap-4 md:grid-cols-2">
-        <div class="rounded-xl bg-white/5 p-5 shadow-sm ring-1 ring-white/10">
-          <h4 class="text-lg font-semibold text-white">Is this sanitary?</h4>
-          <p class="mt-2 text-white/70">Yes. Analysis is non-contact and fully enclosed.</p>
+        <div class="rounded-xl bg-[#1E293B]/70 p-5 shadow-sm ring-1 ring-[#334155]">
+          <h4 class="text-lg font-semibold text-[#F1F5F9]">Is this sanitary?</h4>
+          <p class="mt-2 text-[#94A3B8]">Yes. Analysis is non-contact and fully enclosed.</p>
         </div>
-        <div class="rounded-xl bg-white/5 p-5 shadow-sm ring-1 ring-white/10">
-          <h4 class="text-lg font-semibold text-white">Does it replace my wearables?</h4>
-          <p class="mt-2 text-white/70">It complements them by measuring internal biomarkers they cannot.</p>
+        <div class="rounded-xl bg-[#1E293B]/70 p-5 shadow-sm ring-1 ring-[#334155]">
+          <h4 class="text-lg font-semibold text-[#F1F5F9]" data-segment-copy="faq2Question">Does it replace my wearables?</h4>
+          <p class="mt-2 text-[#94A3B8]" data-segment-copy="faq2Answer">It complements them by measuring internal biomarkers they cannot.</p>
         </div>
-        <div class="rounded-xl bg-white/5 p-5 shadow-sm ring-1 ring-white/10">
-          <h4 class="text-lg font-semibold text-white">What biomarkers do you track?</h4>
-          <p class="mt-2 text-white/70">Hydration, recovery markers, metabolic indicators like ketones and electrolytes.</p>
+        <div class="rounded-xl bg-[#1E293B]/70 p-5 shadow-sm ring-1 ring-[#334155]">
+          <h4 class="text-lg font-semibold text-[#F1F5F9]" data-segment-copy="faq3Question">What biomarkers do you track?</h4>
+          <p class="mt-2 text-[#94A3B8]" data-segment-copy="faq3Answer">Hydration, recovery markers, metabolic indicators like ketones and electrolytes.</p>
         </div>
-        <div class="rounded-xl bg-white/5 p-5 shadow-sm ring-1 ring-white/10">
-          <h4 class="text-lg font-semibold text-white">Does it work with any toilet?</h4>
-          <p class="mt-2 text-white/70">A retrofit version is planned; early units may require compatible hardware.</p>
+        <div class="rounded-xl bg-[#1E293B]/70 p-5 shadow-sm ring-1 ring-[#334155]">
+          <h4 class="text-lg font-semibold text-[#F1F5F9]" data-segment-copy="faq4Question">Does it work with any toilet?</h4>
+          <p class="mt-2 text-[#94A3B8]" data-segment-copy="faq4Answer">A retrofit version is planned; early units may require compatible hardware.</p>
         </div>
-        <div class="rounded-xl bg-white/5 p-5 shadow-sm ring-1 ring-white/10">
-          <h4 class="text-lg font-semibold text-white">When will it be available?</h4>
-          <p class="mt-2 text-white/70">We're selecting early testers now.</p>
+        <div class="rounded-xl bg-[#1E293B]/70 p-5 shadow-sm ring-1 ring-[#334155]">
+          <h4 class="text-lg font-semibold text-[#F1F5F9]">When will it be available?</h4>
+          <p class="mt-2 text-[#94A3B8]">We're selecting early testers now.</p>
         </div>
       </div>
     </section>
   </main>
 
+  <footer class="relative mx-auto max-w-6xl px-6 pb-10">
+    <p class="hidden text-xs leading-relaxed text-[#94A3B8]" data-segment-copy="footerDisclaimer" data-segment-visible="screen">Attune is for general wellness and informational purposes only.</p>
+  </footer>
+
   <script>
     const WAITLIST_ENDPOINT = 'https://usebasin.com/f/a31af0c903bc';
-    const ALLOWED_PRICES = [9, 19, 39, 79];
+    const ALLOWED_PRICES = [9, 19, 20, 39, 79];
     const DEFAULT_PRICE = null;
+    const ALLOWED_SEGMENTS = ['performance', 'screen'];
+    const DEFAULT_SEGMENT = 'performance';
     const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'utm_ad'];
+    const SEGMENT_COPY = {
+      performance: {
+        pageTitle: 'Attune - Daily Health Insights, Right From Your Bathroom',
+        heroTitle: 'Daily Health Insights, Right From Your Bathroom',
+        heroBody: 'Your body already knows what is going on. Attune helps you listen. Attune passively tracks hydration, recovery, and metabolic state through your urine with no wearables, appointments, or manual logs. Get simple, actionable feedback that helps you improve your health and avoid preventable setbacks.',
+        topCtaText: 'Join the waitlist',
+        heroPrimaryCta: 'Join the waitlist',
+        heroSecondaryCta: 'Learn more',
+        heroMicrocopy: '',
+        benefitsHeading: 'What this helps you do every day',
+        benefit1Title: 'Stay hydrated',
+        benefit1Body: 'Measure urine specific gravity to spot dehydration early.',
+        benefit2Title: 'Optimize recovery',
+        benefit2Body: 'Track recovery markers in your urine to avoid overtraining.',
+        benefit3Title: 'Monitor your metabolism',
+        benefit3Body: 'Follow ketones and electrolytes to see how your diet is working.',
+        step1Body: 'You go, it measures - passive urine analysis each visit.',
+        step2Body: 'Hydration, recovery, and metabolic markers are detected.',
+        step3Body: 'Insights are delivered automatically to your app.',
+        audienceDescription: 'Designed for people who push their bodies and care about their internal signals.',
+        audienceTag1: 'Athletes',
+        audienceTag2: 'Runners and cyclists',
+        audienceTag3: 'Gym-goers',
+        audienceTag4: 'Health-minded folks',
+        audienceTag5: 'Biohackers',
+        ctaEyebrow: 'Join the waitlist',
+        ctaHeading: 'Be first to get Attune',
+        ctaBody: 'Early access, special pricing, and beta invitations.',
+        ctaFormButtonText: 'Join the waitlist',
+        ctaPurchaseButtonText: 'Get Attune Now',
+        purchasePlaceholderBody: 'Stripe checkout placeholder.',
+        safetyDisclaimer: '',
+        footerDisclaimer: '',
+        faq2Question: 'Does it replace my wearables?',
+        faq2Answer: 'It complements them by measuring internal biomarkers they cannot.',
+        faq3Question: 'What biomarkers do you track?',
+        faq3Answer: 'Hydration, recovery markers, metabolic indicators like ketones and electrolytes.',
+        faq4Question: 'Does it work with any toilet?',
+        faq4Answer: 'A retrofit version is planned; early units may require compatible hardware.',
+      },
+      screen: {
+        pageTitle: 'Attune - Daily Health Insights, Right From Your Bathroom',
+        heroTitle: 'Daily Health Insights, Right From Your Bathroom',
+        heroBody: 'Your body already knows what is going on. Attune helps you listen. Attune passively tracks hydration, recovery, and metabolic state through your urine with no wearables, appointments, or manual logs. Get simple, actionable feedback that helps you improve your health and avoid preventable setbacks.',
+        topCtaText: 'Start your $20/month plan',
+        heroPrimaryCta: 'Start your $20/month plan',
+        heroSecondaryCta: 'See how it works',
+        heroMicrocopy: 'For wellness and informational use only. Not for diagnosis or medical decisions.',
+        benefitsHeading: 'What this helps you do every day',
+        benefit1Title: 'Stay hydrated',
+        benefit1Body: 'Track hydration shifts over time and stay ahead of daily dips.',
+        benefit2Title: 'Monitor Wellness',
+        benefit2Body: 'Follow everyday wellness signals in one simple timeline.',
+        benefit3Title: 'Identify Anomolies',
+        benefit3Body: 'Notice unusual changes faster so you can take informed next steps.',
+        step1Body: 'Use the urine strip.',
+        step2Body: 'Scan and add results to Attune.',
+        step3Body: 'Receive actionable insights every day.',
+        signalsHeading: 'What you will see',
+        signal1Title: 'Daily health score',
+        signal1Body: 'Daily health score placeholder for your app screenshot.',
+        signal2Title: 'Health trends over time',
+        signal2Body: 'Health trends over time placeholder for your app screenshot.',
+        signal3Title: 'Daily check in',
+        signal3Body: 'Daily check in placeholder for your app screenshot.',
+        audienceDescription: 'Built for anyone who wants to feel more in control of their wellness with clear daily signals and momentum you can see.',
+        screenAudience1Title: 'Wellness seekers',
+        screenAudience1Body: 'People who want simple daily visibility into how their body is responding to routine, stress, and recovery.',
+        screenAudience2Title: 'Busy routines',
+        screenAudience2Body: 'Parents, professionals, and students who want fast feedback without adding another app ritual.',
+        screenAudience3Title: 'Performance and longevity',
+        screenAudience3Body: 'Athletes and health-minded people who want trend data they can act on over time.',
+        ctaEyebrow: 'Join now',
+        ctaHeading: 'Start your $20/month plan',
+        ctaBody: 'Includes 20 urinalysis strips each month and unlimited Attune app usage.',
+        ctaFormButtonText: 'Start your $20/month plan',
+        ctaPurchaseButtonText: 'Start your $20/month plan',
+        purchasePlaceholderBody: 'Create your account, add shipping and payment details, and activate your monthly Attune subscription.',
+        safetyDisclaimer: 'Attune is for general wellness and informational purposes. It does not diagnose, treat, cure, or prevent any disease and does not replace professional medical advice or lab testing. Do not use Attune for urgent or time-sensitive decisions.',
+        footerDisclaimer: 'Attune is for general wellness and informational purposes. It does not diagnose, treat, cure, or prevent any disease and does not replace professional medical advice or lab testing. Do not use Attune for urgent or time-sensitive decisions.',
+        faq2Question: 'What kind of insights will I see?',
+        faq2Answer: 'Attune focuses on trend-level wellness insights, baseline changes, and note prompts tied to your routine.',
+        faq3Question: 'Can I share this with a clinician?',
+        faq3Answer: 'Yes. You can export a simple history to discuss with a clinician if you choose.',
+        faq4Question: 'Is this for diagnosis or urgent decisions?',
+        faq4Answer: 'No. It is for wellness and informational use only.',
+      },
+    };
 
     /*
       Test plan:
-      1) Visit /join?price=39&utm_source=meta&utm_campaign=pricing_test_v1&utm_ad=ad_a
-         - Price appears in hero + CTA
-         - Payload includes price_shown=39 and UTMs
-      2) Visit /join?price=999
+      1) Visit /?segment=screen&utm_source=meta&utm_campaign=screen_test&utm_ad=ad_a
+         - Segment copy changes across hero/benefits/audience/FAQ
+         - Hero price shows "$20/month - 20 strips/month"
+         - Checkout links include segment + UTMs
+      2) Visit /?segment=unknown&price=999
+         - Segment falls back to performance
          - Shows "Early access pricing"
          - price_shown stored as null
       3) Submit signup and confirm:
-         - Server receives/stores price_shown + UTMs
+         - Server receives/stores segment, price_shown, and UTMs
          - Analytics event fires with correct properties
     */
 
@@ -269,21 +434,103 @@
       return utms;
     };
 
-    const formatHeroPrice = (priceShown) => {
+    const resolveSegment = (params) => {
+      let segment = DEFAULT_SEGMENT;
+      if (params.has('segment')) {
+        const raw = params.get('segment');
+        const normalized = raw ? raw.trim().toLowerCase() : '';
+        segment = ALLOWED_SEGMENTS.includes(normalized) ? normalized : DEFAULT_SEGMENT;
+      } else {
+        const stored = getSessionValue('segment');
+        const normalizedStored = stored ? stored.trim().toLowerCase() : '';
+        segment = ALLOWED_SEGMENTS.includes(normalizedStored) ? normalizedStored : DEFAULT_SEGMENT;
+      }
+      setSessionValue('segment', segment);
+      return segment;
+    };
+
+    const updateSegmentCopy = (segment) => {
+      const copy = SEGMENT_COPY[segment] || SEGMENT_COPY[DEFAULT_SEGMENT];
+      if (copy.pageTitle) {
+        document.title = copy.pageTitle;
+      }
+      const copyTargets = document.querySelectorAll('[data-segment-copy]');
+      copyTargets.forEach((target) => {
+        const key = target.getAttribute('data-segment-copy');
+        if (!key || !(key in copy)) return;
+        const value = copy[key];
+        target.textContent = value;
+        if (target.getAttribute('data-segment-hide-if-empty') === 'true') {
+          const text = String(value || '').trim();
+          target.classList.toggle('hidden', text.length === 0);
+        }
+      });
+    };
+
+    const updateSegmentVisibility = (segment) => {
+      const targets = document.querySelectorAll('[data-segment-visible]');
+      targets.forEach((target) => {
+        const raw = target.getAttribute('data-segment-visible');
+        if (!raw) return;
+        const visibleFor = raw
+          .split(',')
+          .map((value) => value.trim())
+          .filter(Boolean);
+        target.classList.toggle('hidden', !visibleFor.includes(segment));
+      });
+    };
+
+    const updateHowItWorksLayout = (segment) => {
+      const grid = document.getElementById('how-it-works-grid');
+      if (!grid) return;
+      grid.classList.toggle('lg:grid-cols-4', segment === 'performance');
+      grid.classList.toggle('lg:grid-cols-3', segment === 'screen');
+    };
+
+    const formatHeroPrice = (priceShown, segment) => {
+      if (segment === 'screen') return '$20/month - 20 strips/month';
       if (priceShown === null) return 'Early access pricing';
       return `Early access: $${priceShown}/month`;
     };
 
-    const formatCtaPrice = (priceShown) => {
-      if (priceShown === null) return 'Join for early access pricing';
-      return `Join for $${priceShown}/month`;
+    const formatCtaPrice = (priceShown, segment) => {
+      if (segment === 'screen') return '$20/month - 20 strips/month';
+      if (priceShown === null) return 'Early access pricing';
+      return `Early access: $${priceShown}/month`;
     };
 
-    const updatePriceCopy = (priceShown) => {
+    const updatePriceCopy = (priceShown, segment) => {
       const hero = document.querySelector('[data-price-hero]');
-      if (hero) hero.textContent = formatHeroPrice(priceShown);
+      if (hero) hero.textContent = formatHeroPrice(priceShown, segment);
       const cta = document.querySelector('[data-price-cta]');
-      if (cta) cta.textContent = formatHeroPrice(priceShown);
+      if (cta) cta.textContent = formatCtaPrice(priceShown, segment);
+    };
+
+    const buildCheckoutHref = () => {
+      const checkoutUrl = new URL('/checkout/', window.location.origin);
+      checkoutUrl.searchParams.set('segment', 'screen');
+      if (landingState.priceShown !== null) {
+        checkoutUrl.searchParams.set('price', String(landingState.priceShown));
+      }
+      UTM_KEYS.forEach((key) => {
+        const value = landingState.utms[key];
+        if (value) {
+          checkoutUrl.searchParams.set(key, value);
+        }
+      });
+      return `${checkoutUrl.pathname}${checkoutUrl.search}`;
+    };
+
+    const updateSegmentLinks = (segment) => {
+      const targets = document.querySelectorAll('[data-segment-href-performance][data-segment-href-screen]');
+      targets.forEach((target) => {
+        const performanceHref = target.getAttribute('data-segment-href-performance') || '#waitlist';
+        const screenHref = target.getAttribute('data-segment-href-screen') || performanceHref;
+        const href = segment === 'screen'
+          ? (screenHref.startsWith('/checkout/') ? buildCheckoutHref() : screenHref)
+          : performanceHref;
+        target.setAttribute('href', href);
+      });
     };
 
     const isDev = ['localhost', '127.0.0.1'].includes(window.location.hostname);
@@ -303,35 +550,41 @@
       if (isDev) return;
     };
 
-    let pricingState = { priceShown: DEFAULT_PRICE, utms: {} };
+    let landingState = { priceShown: DEFAULT_PRICE, utms: {}, segment: DEFAULT_SEGMENT };
 
-    const applyPricingFromUrl = () => {
+    const applyLandingStateFromUrl = () => {
       const params = new URLSearchParams(window.location.search);
       const priceShown = resolvePriceShown(params);
       const utms = resolveUtmValues(params);
-      pricingState = { priceShown, utms };
-      updatePriceCopy(priceShown);
+      const segment = resolveSegment(params);
+      landingState = { priceShown, utms, segment };
+      updateSegmentVisibility(segment);
+      updateHowItWorksLayout(segment);
+      updateSegmentCopy(segment);
+      updatePriceCopy(priceShown, segment);
+      updateSegmentLinks(segment);
     };
 
-    applyPricingFromUrl();
+    applyLandingStateFromUrl();
 
     window.addEventListener('popstate', () => {
-      applyPricingFromUrl();
+      applyLandingStateFromUrl();
     });
 
     const originalPushState = history.pushState;
     history.pushState = function () {
       originalPushState.apply(this, arguments);
-      applyPricingFromUrl();
+      applyLandingStateFromUrl();
     };
 
     const originalReplaceState = history.replaceState;
     history.replaceState = function () {
       originalReplaceState.apply(this, arguments);
-      applyPricingFromUrl();
+      applyLandingStateFromUrl();
     };
 
     const waitlistForm = document.getElementById('waitlist-form');
+
     if (waitlistForm) {
       waitlistForm.addEventListener('submit', async (event) => {
         event.preventDefault();
@@ -347,13 +600,14 @@
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               email,
-              price_shown: pricingState.priceShown,
-              utm_source: pricingState.utms.utm_source || null,
-              utm_medium: pricingState.utms.utm_medium || null,
-              utm_campaign: pricingState.utms.utm_campaign || null,
-              utm_content: pricingState.utms.utm_content || null,
-              utm_term: pricingState.utms.utm_term || null,
-              utm_ad: pricingState.utms.utm_ad || null,
+              segment: landingState.segment,
+              price_shown: landingState.priceShown,
+              utm_source: landingState.utms.utm_source || null,
+              utm_medium: landingState.utms.utm_medium || null,
+              utm_campaign: landingState.utms.utm_campaign || null,
+              utm_content: landingState.utms.utm_content || null,
+              utm_term: landingState.utms.utm_term || null,
+              utm_ad: landingState.utms.utm_ad || null,
               landing_path: window.location.pathname,
               full_url: window.location.href,
             }),
@@ -361,11 +615,20 @@
 
           if (response.ok) {
             trackAnalyticsEvent('waitlist_signup', {
-              price_shown: pricingState.priceShown,
+              segment: landingState.segment,
+              price_shown: landingState.priceShown,
               page_path: window.location.pathname,
-              ...pricingState.utms,
+              ...landingState.utms,
             });
-            window.location.href = '/waitlist-confirmed/';
+            const confirmationParams = new URLSearchParams();
+            confirmationParams.set('segment', landingState.segment);
+            if (landingState.priceShown !== null) {
+              confirmationParams.set('price', String(landingState.priceShown));
+            }
+            const confirmationQuery = confirmationParams.toString();
+            window.location.href = confirmationQuery
+              ? `/waitlist-confirmed/?${confirmationQuery}`
+              : '/waitlist-confirmed/';
             return;
           }
           alert('Waitlist is full right now-email us at hello@attune.com.');

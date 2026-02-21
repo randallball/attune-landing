@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attune Subscription Confirmed</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="min-h-screen bg-[#0F172A] text-[#F1F5F9] antialiased">
+  <main class="mx-auto max-w-2xl px-6 py-10">
+    <section class="rounded-3xl bg-[#1E293B]/85 p-6 ring-1 ring-[#334155] shadow-xl">
+      <p class="text-sm font-semibold uppercase tracking-wide text-[#34D399]">Subscription active</p>
+      <h1 class="mt-2 text-3xl font-semibold">You are in.</h1>
+      <p class="mt-3 text-[#94A3B8]">
+        Your Attune monthly plan is set up at $20/month and includes 20 test strips each month with unlimited app usage.
+      </p>
+      <p class="mt-2 text-sm text-[#94A3B8]">
+        Keep this email account for login: we will use the same account for app access and subscription management.
+      </p>
+    </section>
+
+    <section class="mt-6 rounded-3xl bg-[#1E293B]/85 p-6 ring-1 ring-[#334155] shadow-xl">
+      <h2 class="text-xl font-semibold">Next steps</h2>
+      <ol class="mt-3 space-y-2 text-[#94A3B8] list-decimal pl-5">
+        <li>Check your email for Stripe confirmation.</li>
+        <li>Use the same email to log in to the Attune app.</li>
+        <li>We will use your checkout shipping address for strip fulfillment.</li>
+      </ol>
+      <div class="mt-5 flex flex-wrap gap-3">
+        <a href="/?segment=screen" class="inline-flex items-center justify-center rounded-full bg-[#0EA5E9] px-6 py-3 text-sm font-semibold text-white shadow transition hover:bg-[#0284C7]">Back to site</a>
+        <button id="portal-btn" class="inline-flex items-center justify-center rounded-full bg-white/10 px-6 py-3 text-sm font-semibold text-[#F1F5F9] ring-1 ring-[#334155] transition hover:bg-white/20">Manage billing</button>
+      </div>
+      <p id="status-text" class="mt-4 text-sm text-[#94A3B8]"></p>
+    </section>
+  </main>
+
+  <script>
+    const LOCAL_URL_KEY = 'attune_supabase_url';
+    const LOCAL_ANON_KEY = 'attune_supabase_anon_key';
+    const APP_SUPABASE_URL = 'https://rnpapdvfjepjfoceogjm.supabase.co';
+    const APP_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJucGFwZHZmamVwamZvY2VvZ2ptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk5NjkwNDQsImV4cCI6MjA4NTU0NTA0NH0.hg4IIk2O4pCA4Ky9xLyOZC1DohUfgYUBnj61JjA8DKs';
+    const SUPABASE_URL = window.ATTUNE_SUPABASE_URL || localStorage.getItem(LOCAL_URL_KEY) || APP_SUPABASE_URL;
+    const SUPABASE_ANON_KEY = window.ATTUNE_SUPABASE_ANON_KEY || localStorage.getItem(LOCAL_ANON_KEY) || APP_SUPABASE_ANON_KEY;
+    const portalBtn = document.getElementById('portal-btn');
+    const statusText = document.getElementById('status-text');
+
+    const setStatus = (message, isError = false) => {
+      statusText.textContent = message;
+      statusText.classList.toggle('text-rose-300', isError);
+      statusText.classList.toggle('text-[#94A3B8]', !isError);
+    };
+
+    const formatFunctionError = (error, functionName) => {
+      const raw = String(error?.message || error || '').trim();
+      const isReachabilityError = raw.includes('Failed to send a request to the Edge Function');
+      if (isReachabilityError) {
+        return `Could not reach ${functionName}. This usually means the function is not deployed yet or CORS/secrets are not configured for this Supabase project.`;
+      }
+      if (!raw) return `Could not run ${functionName}.`;
+      return raw;
+    };
+
+    const invokeEdgeFunction = async (supabase, functionName, payload) => {
+      const { data: sessionData } = await supabase.auth.getSession();
+      const accessToken = sessionData?.session?.access_token;
+      if (!accessToken) {
+        throw new Error('Your session is missing. Please sign in again.');
+      }
+
+      const response = await fetch(`${SUPABASE_URL}/functions/v1/${functionName}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          apikey: SUPABASE_ANON_KEY,
+          Authorization: `Bearer ${accessToken}`,
+        },
+        body: JSON.stringify(payload || {}),
+      });
+
+      const rawText = await response.text();
+      let parsed = null;
+      try {
+        parsed = rawText ? JSON.parse(rawText) : null;
+      } catch {
+        parsed = null;
+      }
+
+      if (!response.ok) {
+        const detail = parsed?.error || parsed?.message || rawText || `HTTP ${response.status}`;
+        throw new Error(String(detail));
+      }
+
+      return parsed;
+    };
+
+    const init = async () => {
+      if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+        portalBtn.disabled = true;
+        setStatus('Billing portal requires Supabase web config.');
+        return;
+      }
+
+      const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      const { data } = await supabase.auth.getSession();
+      if (!data.session?.user) {
+        portalBtn.disabled = true;
+        setStatus('Sign in at checkout to use billing management.');
+        return;
+      }
+
+      portalBtn.addEventListener('click', async () => {
+        portalBtn.disabled = true;
+        setStatus('Opening billing portal...');
+        try {
+          const portalData = await invokeEdgeFunction(supabase, 'stripe-create-portal', {
+            return_url: `${window.location.origin}/purchase-success/`,
+          });
+          if (!portalData?.url) throw new Error('Portal URL was not returned.');
+          window.location.href = portalData.url;
+        } catch (err) {
+          setStatus(formatFunctionError(err, 'stripe-create-portal'), true);
+          portalBtn.disabled = false;
+        }
+      });
+    };
+
+    init();
+  </script>
+</body>
+</html>
